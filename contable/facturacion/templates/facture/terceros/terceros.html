@@ -1,0 +1,104 @@
+{% extends 'facture/masterpage.html'%}
+{% load static%}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"></h3>
+        <button type="button" class="btn btn-success" data-toggle="modal" onclick="openForm()">
+            <i class="fas  fa-plus-circle"></i>
+        </button>
+    </div>
+
+    <!-- insert table -->
+    <div id="table"></div>
+</div>
+<!-- insert form -->
+<div id="form"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+
+  toastr.options.timeOut = 1000;
+
+  function loadTable(){
+     $("#table").load("/terceros/tblterceros", function(){
+        $("#tblterceros").DataTable({
+            "responsive": true,
+            "autoWidth": true,
+         });
+      })
+  }
+
+  function openForm(){
+      $("#form").load("/terceros/frmterceros/", function(){
+          $('#modal-grupo').modal('show');
+      })
+  }
+
+  function editar(id){
+      $("#form").load("/terceros/frmterceros/"+id, function(){
+          $('#modal-grupo').modal('show');
+      })
+  }
+
+  function borrar(id) {
+     Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podrás reversar esta acción !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, borrar!'
+        }).then((result) => {
+          if (result.value) {
+            $.ajax({
+                type: "GET",
+                url: "/terceros/eliminar/"+id,
+                success: function(response){
+                    if(response['state']){
+                        toastr.success(response['msg'])
+                        loadTable()
+                        $("#closeModal").click()
+                    }
+                    else{
+                        toastr.error(response['msg'])
+                    }
+                }
+             })
+          }
+        })
+  }
+
+  $(function () {
+     $("#form").load("/terceros/frmterceros/")
+     loadTable()
+  });
+
+  $(document).on('submit','#frmTercero',function(event){
+     event.preventDefault();
+     event.stopImmediatePropagation();
+     var urlAction = ($("#frmTercero").attr('action'))
+     $.ajax({
+        data: $(frmTercero).serialize(),
+        type: "POST",
+        url: urlAction,
+        success: function(response){
+           if(response['state']){
+              toastr.success('Registro Guardado')
+              loadTable()
+              $("#closeModal").click()
+           }
+           else{
+              for(error in response['errors']){
+                 toastr.error(response['errors'][error])
+              }
+           }
+        }
+     })
+  });
+
+</script>
+{% endblock %}

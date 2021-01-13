@@ -1,0 +1,16 @@
+create temp table base as select facturacion_documentosdetalle.fecha, sum(cantidad) as cantidad, codproduct_id, sum(facturacion_documentosdetalle.total) as total, user 
+from facturacion_documentosdetalle 
+left join facturacion_documentos 
+on numfac_id = facturacion_documentos.id
+where tipo_id = '2'
+group by user, codproduct_id;
+
+select base.fecha, base.cantidad, base.total, base.user, codproduct_id, facturacion_producto.descripcion
+from base 
+join facturacion_producto 
+on base.codproduct_id = facturacion_producto.id
+where facturacion_producto.grupo_id = '1'
+
+
+
+

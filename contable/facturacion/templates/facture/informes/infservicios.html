@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <section class="content">
+        <a href="/"><i class="fas fa-arrow-circle-left"></i> Atrás</a>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Informe de Servicios Diario</h3>
+                        <br>
+                    </div>
+                    <!-- /.card-header -->
+
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Servicio</th>
+                                <th>Cant</th>
+                                <th>Cliente</th>
+                                <th>Prestador</th>
+                                <th>Factura</th>
+                                <th>Valor</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for servicio in servicios %}
+                            <tr>
+                                <td>{{ servicio.fecha }}</td>
+                                <td>{{ servicio.codproduct.descripcion}}</td>
+                                <td>{{ servicio.cantidad}}</td>
+                                <td>{{ servicio.numfac.tercero.nombre | upper}}</td>
+                                <td>{{ servicio.numfac.user | upper}}</td>
+                                <td>{{ servicio.numfac.consecutivo}}</td>
+                                <td>{{ servicio.total}}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </section>

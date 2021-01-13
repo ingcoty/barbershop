@@ -1,0 +1,147 @@
+{% load adminlte_helpers i18n %}
+{% load humanize %}
+{% load static %}
+<style type="text/css">
+    body {
+        font-size: 15px;
+    }
+
+    .facturaAnulada:after {
+        content: "ANULADO";
+        font-size: 6em;
+        color: rgba(52, 166, 214, 0.4);
+        z-index: 9999;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        -webkit-pointer-events: none;
+        -moz-pointer-events: none;
+        -ms-pointer-events: none;
+        -o-pointer-events: none;
+        pointer-events: none;
+
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+</style>
+<div class="modal fade" id="modalFactura" style="display: none;" aria-hidden="true">
+    <div id="modalsize" class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="invoice p-4 mb-2" id="invoice">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>
+                                <img src="{% static 'img/logo_fac.jpeg' %}" alt="AdminLTE Logo"
+                                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                                INFORME DE VENTAS
+                                <small class="float-right">Fecha: {{ fecha_inicial }} - {{ fecha_final }}</small>
+                            </h4>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                            <address>
+                                <strong> {{empresa.nombre}} </strong><br>
+                                {{empresa.nit}}</br>
+                            </address>
+
+                        </div>
+                    </div>
+                    <!-- /.row -->
+
+                    <!-- Table row -->
+                    <div class="row">
+                        <div class="col-12 table-responsive">
+                            <table class="table table-striped">                              
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Prestador</th>
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Valor</th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for producto in products%}
+                                    <tr>                                        
+                                        <td>{{producto.fecha}}</td>
+                                        <td>{{producto.user}}</td>
+                                        <td>{{producto.descripcion}}</td>
+                                        <td>{{producto.cantidad}}</td>
+                                        <td>{{producto.total | floatformat:2  }}</td>                                        
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row">
+                        <!-- accepted payments column -->
+                        <div class="col-6">
+                            <p class="lead"></p>
+
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-6">
+                            <p class="lead">Resumen</p>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <th style="width:50%">Total:</th>
+                                        <td id="global">${{ total | floatformat:2 }}</td>
+                                    </tr>                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+
+                    <!-- this row will not appear when printing -->
+                    <div class="row no-print">
+                        <div class="col-12">
+                            <a onclick="imprimir()" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                            <a href={% url 'dowload_rptVentas' fecha_inicial fecha_final %}" class="btn btn-default"><i class="fas fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                    <p>
+                        <small class="float-right">habitat technology</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script>
+    function imprimir() {
+        var contentToPrint = document.getElementById('invoice')
+        var win = window.open('', 'Print-Window')
+        win.document.open()
+        win.document.write('<!DOCTYPE html> <html><head><link rel="stylesheet" href="/static/admin-lte/dist/css/adminlte.min.css"></head><body style="font-size:15px;" onload="window.print()"><div> ' + contentToPrint.innerHTML + '</div></body></html>')
+        win.document.close()
+    }
+</script>

@@ -1,0 +1,27 @@
+<div class="card-body">
+    <table id="tblUnidades" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Código</th>
+            <th>Unidades</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for unidad in items %}
+        <tr>
+            <td>{{ unidad.id }}</td>
+            <td>{{ unidad.unidad |upper }}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info" onclick="editar({{unidad.id}})"><i
+                            class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger" onclick="borrar({{unidad.id}})"><i
+                            class="fas  fa-times-circle"></i></button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

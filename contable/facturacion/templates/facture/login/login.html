@@ -1,0 +1,33 @@
+{% extends "adminlte/login.html" %}
+{%load static %}
+
+{% block logo %}
+<div class="login-logo">
+    {# Mirrors block names used in _main_header.html #}
+    <img src="{% static 'login/icono.jpeg' %}" class="rounded mx-auto d-block w-26" alt="Responsive image">
+    <a href="{% block logo_href %}/{% endblock %}">{% block logo_text %}<b></b>{% endblock %}</a>
+</div>
+{% endblock %}
+
+
+
+{% block login_form %}
+<form action="" method="post">
+    {% csrf_token %}
+    {% if message %}
+        <p class="login-box-msg" style="color: red;">{{ message }}</p>
+    {% endif %}
+    <div class="form-group has-feedback">
+        <input name="username" class="form-control" placeholder="Usuario">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        <input type="password" name="password" class="form-control" placeholder="Contraseña">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-primary btn-block ">Iniciar Sesion</button>
+
+    </div>
+</form>
+{% endblock login_form %}

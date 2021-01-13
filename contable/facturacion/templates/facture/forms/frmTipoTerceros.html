@@ -1,0 +1,42 @@
+{% load widget_tweaks %}
+<div class="modal fade" id="modal-grupo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h4 class="card-title">Crear Tipo de Terceros</h4>
+                    </div>
+                    <!-- Inicio del Formulario Terceros -->
+                    <form method="post" id="frmTipoTercero" autocomplete="off" action="{{url_action}}">
+                        <!-- {{url_action}} -->
+                        {% csrf_token %}
+                        <div class="card-body row">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-barcode"></i></span>
+                                </div>
+                                {{form.tipo | attr:"class:form-control" | attr:"placeholder:tipo de tercero" }}
+                            </div>
+                        </div>
+
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" id="closeModal" data-dismiss="modal">Cerrar
+                            </button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>

@@ -1,0 +1,87 @@
+{% extends 'facture/masterpage.html'%}
+{% load static%}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Inventario</h3>
+    </div>
+
+    <!-- insert table -->
+    <div id="table"></div>
+</div>
+<!-- insert form -->
+<div id="detalle"></div>
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+
+  toastr.options.timeOut = 1000;
+
+  function loadTable(){
+      $("#table").load("/inventario/tblinventario", function(){
+         $("#tblProductos").DataTable({
+            "responsive": true,
+            "autoWidth": true,
+         });
+      })
+  }
+
+  function loadfrmdetalle(id){
+     $("#table").load("/inventario/frminvetariodetalle/"+id, function(){
+        $("#tblDetalle").DataTable({
+            "responsive": true,
+            "autoWidth": true,
+            "searching": false,
+            "paging": false,
+        });
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        })
+     })
+  }
+
+  function anular(id) {
+     Swal.fire({
+        title: 'Anular Factura, Estas seguro?',
+        text: "No podrás reversar esta acción !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, anular!'
+        }).then((result) => {
+          if (result.value) {
+             $.ajax({
+                type: "GET",
+                url: "/facturas/anular/"+id,
+                success: function(response){
+                    if(response['state']){
+                        loadTable()
+                        toastr.success(response['msg'])
+                    }
+                    else{
+                        toastr.error(response['msg'])
+                    }
+                }
+             })
+          }
+     })
+  }
+
+  $(function () {
+     loadTable()
+  });
+
+</script>
+{% endblock %}

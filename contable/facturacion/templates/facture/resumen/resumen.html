@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{numservicios}}</h3>
+
+                    <p>Servicios</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-cut-outline"></i>
+                </div>
+                <a onclick="loadinfservicio()" class="small-box-footer">Mas Información <i
+                        class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{numventas}}</h3>
+                    <p>Productos</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                    <ion-icon name="cut-outline"></ion-icon>
+                </div>
+                <a  onclick="loadinfventas()" class="small-box-footer">Mas Información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+                <div class="inner">
+                    <h3>{{numcompras}}</h3>
+                    <p>Compras</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a onclick="loadinfcompras()" class="small-box-footer">Mas Información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+       </div>
+</div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Resumen</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><b>Ingresos por Servicios</b></td>
+                            <td>${{ servicios }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Ingresos por Productos</b></td>
+                            <td>${{ ventas }}</td>
+                        </tr>
+                        <tr  style="background-color:rgb(238, 236, 236)" >
+                            <td><b>Total Ingresos</b></td>
+                            <td>${{ total }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Egresos por Compras</b></td>
+                            <td>${{ compras }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</section>
+

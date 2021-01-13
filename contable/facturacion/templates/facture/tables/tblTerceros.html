@@ -1,0 +1,39 @@
+<div class="card-body">
+    <table id="tblterceros" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Tipo Doc</th>
+            <th>Código</th>
+            <th>Nombre o Razón Social</th>
+            <th>Tipo</th>
+            <th>Contrbuyente</th>
+            <th>Correo</th>
+            {% if perms.facturacion.delete_tercero %}
+            <th>Acciones</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for tercero in items %}
+        <tr>
+            <td>{{ tercero.tipodocumento }}</td>
+            <td>{{ tercero.codigo }}</td>
+            <td>{{ tercero.nombre|upper }}</td>
+            <td>{{ tercero.tipotercero|upper }}</td>
+            <td>{{ tercero.tipocontribuyente|upper }}</td>
+            <td>{{ tercero.email }}</td>
+            {% if perms.facturacion.delete_tercero %}
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info" onclick="editar({{tercero.id}})"><i
+                            class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger" onclick="borrar({{tercero.id}})"><i
+                            class="fas  fa-times-circle"></i></button>
+                </div>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

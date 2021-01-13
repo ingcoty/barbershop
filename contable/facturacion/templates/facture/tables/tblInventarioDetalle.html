@@ -1,0 +1,30 @@
+<div class="card-body">
+   <table id="tblDetalle" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Factura</th>
+            <th>Tercero</th>
+            <th>Ver</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in productos %}
+        <td>{{ product.fecha }}</td>
+        <td>{{ product.codproduct.codigo }}</td>
+        <td>{{ product.codproduct.descripcion|upper }}</td>
+        <td>{{ product.existencia }}</td>
+        <td>{{ product.numfac.consecutivo }}</td>
+        <td>{{ product.numfac.tercero.nombre|upper }}</td>
+        <td>
+             <div class="btn-group">
+                    <button class="btn btn-info" onclick="verfactura({{product.numfac.id}})"><i class="fas fa-fax"></i></button>
+        </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

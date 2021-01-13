@@ -1,0 +1,70 @@
+{% extends 'facture/masterpage.html'%}
+{% load static%}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Facturas de Venta</h3>
+    </div>
+
+    <!-- insert table -->
+    <div id="table"></div>
+</div>
+<!-- insert form -->
+<div id="factura"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+
+  toastr.options.timeOut = 1000;
+
+  function loadTable(){
+      $("#table").load("/facturas/tblfacturasventas", function(){
+         $("#tblfafcturasventa").DataTable({
+            "responsive": true,
+            "autoWidth": true,
+         });
+      })
+  }
+
+  function verdetalle(id){
+       $("#factura").load("/compras/factura/"+id, function(){
+           $('#modalFactura').modal('show')
+     });
+  }
+
+  function anular(id) {
+     Swal.fire({
+        title: 'Anular Factura, Estas seguro?',
+        text: "No podrás reversar esta acción !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, anular!'
+        }).then((result) => {
+          if (result.value) {
+             $.ajax({
+                type: "GET",
+                url: "/facturas/anular/"+id,
+                success: function(response){
+                    if(response['state']){
+                        loadTable()
+                        toastr.success(response['msg'])
+                    }
+                    else{
+                        toastr.error(response['msg'])
+                    }
+                }
+             })
+          }
+     })
+  }
+
+  $(function () {
+     loadTable()
+  });
+
+</script>
+{% endblock %}

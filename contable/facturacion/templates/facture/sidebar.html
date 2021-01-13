@@ -1,0 +1,175 @@
+{% extends 'adminlte/lib/_main_sidebar.html' %}
+
+{% block nav_links %}
+<div id="sidebar">
+
+    <li class="nav-item">
+        <a href="/" class="nav-link">
+            <i class="nav-icon fas fa-line-chart"></i>
+            <p><b>Resumen</b></p>
+        </a>
+    </li>
+
+    <li class="nav-item has-tree-view ">
+        <a class="nav-link" id="transactions">
+            <i class="nav-icon fas fa-cash-register"></i>
+            <p>Transacciones</p>
+            <p><i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview menu-open">
+            {% if perms.facturacion.add_compras %}
+            <li class="nav-item">
+                <a href="/compras" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Compras
+                </a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+                <a href="/ventas" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Ventas
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    {% if perms.facturacion.add_producto %}
+    <li class="nav-item has-tree-view ">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-cart-plus"></i>
+            <p>Productos</p>
+            <p><i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview menu-open">
+            <li class="nav-item">
+                <a href="/productos" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Productos
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/grupos" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Categoria
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/unidades" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Unidades
+                </a>
+            </li>
+        </ul>
+    </li>
+    {%endif%}
+
+    <li class="nav-item has-tree-view ">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>Terceros</p>
+            <p><i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview menu-open">
+            <li class="nav-item">
+                <a href="/terceros" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Crear / Consultar
+                </a>
+            </li>
+
+            {% if perms.facturacion.change_tipotercero %}
+            <li class="nav-item">
+                <a href="/tipoterceros" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Tipo de Terceros
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/tipocontribuyente" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Tipo de Contribuyente
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </li>
+
+    <li class="nav-item has-tree-view ">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-boxes"></i>
+            <p>Inventarios</p>
+            <p><i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview menu-open">
+            <li class="nav-item">
+                <a href="/inventario" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Consultar
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/inventario/salidas" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i> Salidas
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li class="nav-item has-tree-view ">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-dolly"></i>
+            <p>Consultar Compras</p>
+            <p><i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview menu-open">
+            <li class="nav-item">
+                <a href="/facturas/compras" class="nav-link">
+                    <i class="nav-icon fas fa-receipt"></i> Facturas
+                </a>
+            </li>    
+        </ul>
+    </li>
+
+    <li class="nav-item has-tree-view ">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-cart-plus"></i>
+            <p>Consultar Ventas</p>
+            <p><i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview menu-open">
+            <li class="nav-item">
+                <a href="/facturas/ventas" class="nav-link">
+                    <i class="nav-icon fas fa-receipt"></i> Facturas
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="nav-item has-tree-view ">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-cart-plus"></i>
+            <p>Reportes</p>
+            <p><i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview menu-open">
+            <li class="nav-item">
+                <a href="/reportes/inventario" class="nav-link">
+                    <i class="nav-icon fas fa-receipt"></i> Inventario
+                </a>
+            </li>
+        </ul>
+        <ul class="nav nav-treeview menu-open">
+            <li class="nav-item">
+                <a href="/reportes/ventas" class="nav-link">
+                    <i class="nav-icon fas fa-receipt"></i> Ventas
+                </a>
+            </li>
+        </ul>        
+    </li>
+
+</div>
+
+{% endblock nav_links %}

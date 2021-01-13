@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3a995511-b918-41d3-947d-c73f93170eda" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/contable/contable/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/contable/contable/settings.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1433879776">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.34" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.36" value="2" />
+          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.39" value="3" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.41" value="2" />
+          <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.44" value="2" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.53" value="1" />
+          <entry key="project.open.time.57" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.75" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="30" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="339" />
+          <entry key="py" value="155" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="339" />
+          <entry key="Python" value="155" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="38459" />
+          <entry key="py" value="20261" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="38459" />
+          <entry key="Python" value="20261" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Habitat" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/resumen/resumen.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
+              <folding>
+                <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/contable/contable/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/informes/infservicios.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones/compras.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1575">
+              <caret line="105" column="51" selection-start-line="104" selection-start-column="18" selection-end-line="107" selection-end-column="45" />
+              <folding>
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#body#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/masterpage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contable/facturacion/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1275">
+              <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contable/facturacion/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contable/facturacion/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1725">
+              <caret line="116" column="28" selection-start-line="116" selection-start-column="28" selection-end-line="116" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>subm</find>
+      <find>sub</find>
+      <find>submi</find>
+      <find>idTercero</find>
+      <find>buscar</find>
+      <find>codigoProducto</find>
+      <find>ventas</find>
+      <find>compras</find>
+      <find>tercero</find>
+      <find>getval</find>
+      <find>producto</find>
+      <find>agregar</find>
+      <find>salida</find>
+      <find>buscarterce</find>
+      <find>getProductos</find>
+      <find>factu</find>
+      <find>print</find>
+      <find>inventario</find>
+      <find>anular</find>
+      <find>compras/fac</find>
+      <find>venta</find>
+      <find>facturar</find>
+      <find>numFactura</find>
+      <find>resume</find>
+      <find>sum</find>
+      <find>red</find>
+      <find>colo</find>
+      <find>facturas/ven</find>
+      <find>tbl</find>
+      <find>order_by</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>unidades</replace>
+      <replace>tipoterceros</replace>
+      <replace>terceros</replace>
+      <replace>tercero</replace>
+      <replace>tipotercero</replace>
+      <replace>frmTipoTerceros</replace>
+      <replace>tipocontribuyente</replace>
+      <replace>TipoContribuyente</replace>
+      <replace>frmTipoContribuyentes</replace>
+      <replace>cantidad</replace>
+      <replace>{</replace>
+      <replace>{% static 'admin-lte</replace>
+      <replace>ComprasDetalle</replace>
+      <replace>DecimalField(max_digits=10, decimal_places=2)</replace>
+      <replace>parseFloat</replace>
+      <replace>Documentos</replace>
+      <replace>TipoDocumentoTerceros</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/Transacciones/facturacion.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones/facturacion.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones/facompra.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/styles.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/migrations/0015_auto_20200922_1223.py" />
+        <option value="$PROJECT_DIR$/contable/facturacion/migrations/0034_auto_20201001_1812.py" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/scripts.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/terceros/tipoterceros.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/productos/grupos.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/productos/productos.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/productos/unidades.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/terceros/tipocontribuyente.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/forms/frmTerceros.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/terceros/terceros.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/facturas_compras/facturacompras.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/compras/factura.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/Inventario/inventario.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/inventario/detalleproducto.html" />
+        <option value="$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/lib/_styles.html" />
+        <option value="$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/base.html" />
+        <option value="$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/lib/_scripts.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblInventario.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/inventario/inventario.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/inventario/detallefrm.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/blocked.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/test.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/resumen.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/login/login.html" />
+        <option value="$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/lib/_main_header.html" />
+        <option value="$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/lib/_main_sidebar.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/forms/frmProductos.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones/compras.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones/ventas.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblTerceros.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblProductos.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblGrupos.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblFacturasCompras.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblUnidades.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/inventario/salidas.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblInventarioDetalle.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/models.py" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones/facCompra.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblFacturasVentas.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/ventas/factura.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/sidebar.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/urls.py" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/masterpage.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/resumen/resumen.html" />
+        <option value="$PROJECT_DIR$/contable/facturacion/views.py" />
+        <option value="$PROJECT_DIR$/contable/facturacion/templates/facture/informes/infservicios.html" />
+        <option value="$PROJECT_DIR$/contable/contable/settings.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="67" />
+    <option name="y" value="25" />
+    <option name="width" value="1299" />
+    <option name="height" value="743" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Habitat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Habitat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Habitat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Habitat" type="462c0819:PsiDirectoryNode" />
+              <item name="contable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Habitat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Habitat" type="462c0819:PsiDirectoryNode" />
+              <item name="contable" type="462c0819:PsiDirectoryNode" />
+              <item name="contable" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/contable/facturacion/templates/facture/resumen" />
+      <recent name="$PROJECT_DIR$/contable/facturacion/templates/facture" />
+      <recent name="$PROJECT_DIR$/contable/facturacion/templates/facture/productos" />
+      <recent name="$PROJECT_DIR$/contable/facturacion/templates/facture/forms" />
+      <recent name="$PROJECT_DIR$/contable/facturacion" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/contable/facturacion/templates/facture/ventas" />
+      <recent name="$PROJECT_DIR$/contable/facturacion/templates/facture/tables" />
+      <recent name="$PROJECT_DIR$/contable/facturacion/templates/facture/inventario" />
+      <recent name="$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones" />
+      <recent name="$PROJECT_DIR$/contable/facturacion/templates/facture" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a995511-b918-41d3-947d-c73f93170eda" name="Default Changelist" comment="" />
+      <created>1597270032068</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597270032068</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1366" y="-2" width="1366" height="770" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Structure" order="0" sideWeight="0.5058275" side_tool="true" weight="0.263589" />
+      <window_info id="Favorites" order="1" sideWeight="0.5025773" side_tool="true" weight="0.25539836" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49417248" visible="true" weight="0.22189128" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3265625" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3296875" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003723" side_tool="true" weight="0.39375" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4996277" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Python Console" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Structure" order="0" sideWeight="0.50319827" side_tool="true" weight="0.23454952" />
+      <window_info id="Favorites" order="1" sideWeight="0.5025773" side_tool="true" weight="0.25539836" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4968017" visible="true" weight="0.3082651" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3265625" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003723" side_tool="true" weight="0.39375" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4996277" visible="true" weight="0.278125" />
+      <window_info anchor="bottom" id="Python Console" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/contable/contable/urls.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/migrations/0009_auto_20200830_1707.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/migrations/0015_auto_20200922_1223.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/migrations/0024_comprasdetalle_total.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/migrations/0034_auto_20201001_1812.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/terceros/tipoterceros.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="100" column="14" selection-start-line="100" selection-start-column="14" selection-end-line="100" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/productos/grupos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="101" column="14" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/terceros/tipocontribuyente.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="99" column="9" lean-forward="true" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/productos/unidades.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="102" column="14" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/forms/frmTerceros.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="44" lean-forward="true" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/terceros/terceros.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="94" column="19" lean-forward="true" selection-start-line="94" selection-start-column="13" selection-end-line="96" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/productos/productos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/lib/_styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/lib/_scripts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="70" selection-start-line="34" selection-start-column="70" selection-end-line="34" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/inventario/detalleproducto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblInventario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="178" selection-start-line="178" selection-end-line="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/inventario/detallefrm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/inventario/inventario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/styles.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/scripts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/contrib/auth/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/inventario/detalle.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/blocked.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/reemplace.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="94" selection-start-line="11" selection-start-column="94" selection-end-line="11" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/lib/_main_header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="42" column="106" selection-start-line="42" selection-start-column="106" selection-end-line="42" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/adminlte3/templates/adminlte/lib/_main_sidebar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/compras/factura.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/forms/frmProductos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones/ventas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="555" column="2" selection-start-line="555" selection-start-column="2" selection-end-line="559" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblTerceros.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblProductos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblGrupos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblUnidades.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblInventarioDetalle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/inventario/salidas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="356" column="21" lean-forward="true" selection-start-line="356" selection-start-column="21" selection-end-line="356" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones/facCompra.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-556">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblFacturasCompras.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/ventas/factura.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/sidebar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="180" column="36" selection-start-line="180" selection-start-column="25" selection-end-line="180" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/tables/tblFacturasVentas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="53" column="6" selection-end-line="53" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/resumen/resumen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#sup#0;n#h3#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/informes/infservicios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/transacciones/compras.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" column="51" selection-start-line="104" selection-start-column="18" selection-end-line="107" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#section#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/templates/facture/masterpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/facturacion/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1725">
+          <caret line="116" column="28" selection-start-line="116" selection-start-column="28" selection-end-line="116" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contable/contable/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,55 @@
+<div class="card-body">
+    <a href="" onclick="goback()"><i class="fas fa-arrow-circle-left"></i> Atrás</a>
+    <div class="row">       
+        <div class="form-group mb-3 col-4">
+            <div class="input-group">                
+                <div class="input-group-prepend">                   
+                      <span class="input-group-text">
+                        <i class="far fa-calendar-alt"></i>
+                      </span>
+                </div>
+
+                <input type="text" class="form-control float-right" id="reservation">
+                <button class="btn btn-info" onclick="getdetail()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+
+     <div class="input-group">
+        <p><strong>PRODUCTO: {{ productos.codproduct.descripcion }}</strong></p>
+    </div>
+
+    <div id="tabledetalle"></div>
+
+    <div id="factura"></div>
+
+</div>
+
+<script>
+    function getdetail(){
+       var date = document.getElementById('reservation').value;
+       var ini = (date.split("-")[0].trim().replace("/", "-")).replace("/", "-")
+       var fin = (date.split("-")[1].trim().replace("/", "-")).replace("/", "-")
+       console.log(ini)
+       console.log(fin)
+
+       $("#tabledetalle").load("/inventario/tbldetalle/"+{{productos.codproduct.id}}+"/"+ini+"/"+fin, function(){
+           $("#tblDetalle").DataTable({
+                "responsive": true,
+                "autoWidth": true,
+                "searching": false,
+                "paging": false,
+            });
+       })
+    }
+
+    function verfactura(id){
+       $("#factura").load("factura/"+id, function(){
+           $('#modalFactura').modal('show')
+       });
+    }
+
+    function goback(){
+        window.location.href = '/inventario';
+    }
+</script>

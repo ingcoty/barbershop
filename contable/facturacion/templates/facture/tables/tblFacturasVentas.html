@@ -1,0 +1,54 @@
+<div class="card-body">
+    <table id="tblfafcturasventa" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Num</th>
+            <th>Cliente</th>
+            <th>Rel</th>
+            <th>Total</th>
+            <th>Desc</th>
+            <th>Impto</th>
+            <th>Neto</th>
+            <th>Pago</th>
+            <th>Detalle</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for factura in facturas %}
+        {% if factura.neto == 0 %}
+        <tr style="color:#FF0000" ;>
+            {% else %}
+        <tr>
+            {% endif %}
+            <td>{{ factura.fecha }}</td>
+            <td>{{ factura.consecutivo }}</td>
+            <td>{{ factura.tercero.nombre|upper }}</td>
+            <td>{{ factura.relacion}}</td>
+            <td>{{ factura.total }}</td>
+            <td>{{ factura.descuento }}</td>
+            <td>{{ factura.impuesto }}</td>
+            <td>{{ factura.neto }}</td>
+            <td>{{ factura.fpago.fpago}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info" onclick="verdetalle({{factura.id}})"><i
+                            class="fas  fa-eye"></i></button>
+                    {% if factura.neto == 0 %}
+                    {% if perms.facturacion.change_documentos %}
+                    <button type="button" class="btn btn-danger" onclick="anular({{factura.id}})"><i
+                            class="fas  fa-times-circle"></i></button>
+                    {% endif %}
+                    {%else%}
+                    {% if perms.facturacion.change_documentos %}
+                    <button type="button" class="btn btn-danger" onclick="anular({{factura.id}})"><i
+                            class="fas  fa-times-circle"></i></button>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

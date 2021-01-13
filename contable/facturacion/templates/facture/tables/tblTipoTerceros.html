@@ -1,0 +1,27 @@
+<div class="card-body">
+    <table id="tblTipoTerceros" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Código</th>
+            <th>Tipo Tercero</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for tipotercero in items %}
+        <tr>
+            <td>{{ tipotercero.id }}</td>
+            <td>{{ tipotercero.tipo }}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info" onclick="editar({{tipotercero.id}})"><i
+                            class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger" onclick="borrar({{tipotercero.id}})"><i
+                            class="fas  fa-times-circle"></i></button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

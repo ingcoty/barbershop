@@ -1,0 +1,46 @@
+create temp table base as select id, codigo, descripcion, costo, venta from facturacion_producto
+where grupo_id in ('1','3');
+
+
+create temp table init_inventory as select codproduct_id, sum(existencia) as existencia 
+from facturacion_inventario
+where fecha <= '2020-11-01'
+group by codproduct_id;
+
+
+create temp table temp1 as select id, codigo, descripcion, existencia as inicial, costo, venta 
+from base 
+left join init_inventory 
+on base.id = init_inventory.codproduct_id;
+
+
+create temp table salidas as select codproduct_id, sum(existencia) as existencia 
+from facturacion_inventario
+where fecha > '2020-11-01' and fecha <= '2020-11-30'
+and existencia < 0
+group by codproduct_id;
+
+
+create temp table temp2 as select id, codigo, descripcion, inicial, existencia as salidas, costo, venta from temp1 left join salidas on id = salidas.codproduct_id;
+
+create temp table entradas as select codproduct_id, sum(existencia) as entradas 
+from facturacion_inventario
+where fecha > '2020-11-01' and fecha <= '2020-11-30'
+and existencia > 0
+group by codproduct_id;
+
+
+create temp table temp3 as select id, codigo, descripcion, inicial, salidas, entradas, costo, venta 
+from temp2 
+left join entradas 
+on temp2.id = entradas.codproduct_id;
+
+create temp table final_inventory as select codproduct_id, sum(existencia) as final 
+from facturacion_inventario
+where fecha <= '2020-11-30'
+group by codproduct_id;
+
+select id, codigo, descripcion, inicial, entradas, salidas, final, costo, venta, (venta-costo) as util from temp3 left join final_inventory on temp3.id = final_inventory.codproduct_id
+
+
+

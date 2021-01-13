@@ -1,0 +1,37 @@
+<div class="card-body">
+    <table id="tblProductos" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Código</th>
+            <th>Descrpción</th>
+            <th>Grupo</th>
+            <th>Impuesto</th>
+            <th>Unidad</th>
+            <th>Precio</th>
+            <th>Costo</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for producto in items %}
+        <tr>
+            <td>{{ producto.codigo }}</td>
+            <td>{{ producto.descripcion|upper }}</td>
+            <td>{{ producto.grupo.nombre|upper}}</td>
+            <td>{{ producto.impuesto}}%</td>
+            <td>{{ producto.medida.unidad }}</td>
+            <td>{{ producto.venta}}</td>
+            <td>{{ producto.costo}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info" onclick="editar({{producto.id}})"><i
+                            class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger" onclick="borrar({{producto.id}})"><i
+                            class="fas  fa-times-circle"></i></button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

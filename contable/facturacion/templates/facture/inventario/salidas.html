@@ -1,0 +1,431 @@
+{% extends 'facture/masterpage.html'%}
+{% load static%}
+
+{% block content %}
+<body class="hold-transition sidebar-mini">
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-default">
+            <div class="card-header">
+                <div class="row">
+                    <div class="form-group mb-3 col-11">
+                        <h3 class="card-title">Salida de Inventario</h3>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info" title="facturar" onclick="facturar()"><i
+                                class="fas fa-save"></i></button>
+                    </div>
+                </div>
+            </div>
+            <form method="post" action="/transaccion/" id="frmFacturar">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group mb-3 col-5">
+                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input"
+                                               data-target="#reservationdate" placeholder="Fecha" id="fechaFactura"/>
+                                        <div class="input-group-append" data-target="#reservationdate"
+                                             data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar" id="datebtn"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-group  mb-3 col-5">
+                                    <input type="number" class="form-control input-group-append" placeholder="NIT / CC"
+                                           onblur="buscarTercero()"
+                                           id="idTercero">
+                                    <div class="input-group-text" onclick="buscarpornombre()"><i class="fa fa-search"></i>
+                                    </div>
+                                    </span>
+                                </div>
+                                <div class="input-group  mb-3 col-7">
+                                    <input type="text" class="form-control" placeholder="Nombre" disabled=""
+                                           id="nombreTercero">
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <style>select:invalid { color: gray; }</style>
+                                        <select class="form-control select2" style="width: 100%;" id="codigoProducto">
+                                            <option value="" disabled selected hidden>Productos</option>
+                                            {% for producto in productos %}
+                                            <option value="{{producto.id}}">{{ producto.descripcion }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="input-group  mb-3 col-3">
+                                    <input type="number" class="form-control" placeholder="Cant." id="cantidad">
+                                </div>
+
+                                <div>
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                            onclick="agregarProducto()">
+                                        <i class="fas  fa-check-circle"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Notivo:</label>
+                            <textarea id="detalle" class="form-control" rows="3" placeholder="Detalle ..."></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <form id="frmTable">
+                    <div class="card-body">
+                        <table id="tblProductos" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descripción</th>
+                                <th>Cant</th>
+                                <th>Motivo</th>
+                                <th>Borrar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for tipotercero in items %}
+                            <tr>
+                                <td>{{ tipotercero.id }}</td>
+                                <td>{{ tipotercero.tipo }}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button class="btn btn-info" onclick="editar({{tipotercero.id}})"><i
+                                                class="fas fa-edit"></i></button>
+                                        <button type="button" class="btn btn-danger"
+                                                onclick="borrar({{tipotercero.id}})"><i
+                                                class="fas  fa-times-circle"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </form>
+        </div>
+        <div class="card-footer">
+        </div>
+    </div>
+    <!-- /.card -->
+    <div id="formulario"></div>
+
+    {% load widget_tweaks %}
+     <div class="modal fade" id="modalconsultar">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"></div>
+                <div class="modal-body">
+                    <div class="card card-info">
+                        <div class="card-header">
+                            <h4 class="card-title">Buscar por nombre</h4>
+                        </div>
+                        <!-- Inicio del Formulario Buscar Tercero -->
+                        <form method="post" id="frmBuscar" autocomplete="off">
+                            <div class="card-body row">
+                                <div class="input-group mb-3">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <style>select:invalid { color: gray; }</style>
+                                            <select class="form-control select2" style="width: 100%;"
+                                                    id="codigotercero">
+                                                <option value="" disabled selected hidden>Tercero</option>
+                                                {% for tercero in terceros %}
+                                                <option value="{{tercero.codigo}}">{{ tercero.nombre|upper }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" id="closemodalconsultar"
+                                        data-dismiss="modal">
+                                    Cerrar
+                                </button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+
+    <div id="factura">
+    </div>
+
+</section>
+</body>
+{% endblock %}
+<!-- Page script -->
+{% block extra_js %}
+<script>
+
+  $(function () {
+
+     //Initialize Select2 Elements
+    $('.select2').select2({
+        placeholder:"Seleccione un producto"
+    });
+
+    $('#codigotercero').select2({
+         placeholder:"Buscar tercero"
+    });
+
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+
+     $("#tblProductos").DataTable({
+            "responsive": true,
+            "autoWidth": true,
+            "searching": false,
+            "paging": false,
+     });
+
+     $('#datebtn').click();
+     $('#fechaFactura').blur();
+
+     getTerceros().then((result) => {
+         Terceros = result;
+     })
+
+     getProductos().then((result) => {
+         Productos = result;
+     })
+  })
+
+  toastr.options.timeOut = 1000;
+  var Terceros;
+  var Productos;
+
+  function getProductos(){
+     return new Promise((resolve, reject) => {
+        $.getJSON("/getProductos/", function(result){
+            resolve(result);
+        });
+     })
+  }
+
+  function getTerceros(){
+     return new Promise((resolve, reject) => {
+          $.getJSON("/getTerceros/", function(result){
+             resolve(result);
+        });
+     })
+  }
+
+  function buscarpornombre(){
+      $('#modalconsultar').modal('show');
+  }
+
+  const verifica_existencia = codigo => {
+     return new Promise((resolve, reject) => {
+        $.getJSON("/ventas/existencia/"+codigo, function(result){
+            resolve(result);
+        });
+     })
+  }
+
+  function getInfoProduct(id){
+     for(producto in Productos){
+        if(Productos[producto].id == id){
+            return(Productos[producto]);
+        }
+     }
+     return(0);
+  }
+
+  function agregarProducto(){
+
+      codigo = $('#codigoProducto').val();
+      cantidad = $('#cantidad').val()
+
+      if(!codigo){
+         toastr.error('Seleccione un producto');
+         return;
+      }
+      producto = getInfoProduct(codigo);
+
+      if(cantidad == 0 ){
+         toastr.error('Verifique cantidad');
+         return
+      }
+
+      detalle = $('#detalle').val();
+      if(!detalle){
+         toastr.error('Indique el motivo de salida');
+         return
+      }
+
+      verifica_existencia(codigo).then((result) => {
+         if(result.existencia >= cantidad){
+            toastr.success('Existencia Comprobada');
+            var table = $('#tblProductos').DataTable();
+            table.row.add([
+                producto.codigo,
+                producto.descripcion,
+                cantidad,
+                detalle,
+                '<div class="btn btn-ligth" style="color:red" ;font-size:="" 24px="" "=""><i class="fas fa-times-circle fa-lg"></i></div>'
+             ]).draw();
+         }
+         else{
+            toastr.error('Stock disponible: ' + result.existencia);
+            return;
+         }
+      })
+  }
+
+  function facturar(){
+     productList = []
+     var table = $('#tblProductos').DataTable();
+     dataProducts = table.rows().data();
+     var filas = table.rows().count();
+     if(filas == 0){
+       toastr.error('No hay productos agregados');
+       return
+     }
+     var fpago = $('#formadepago').val()
+     dataProducts.each( function (value){
+        jsonProducts = {}
+        jsonProducts.codigo = value[0];
+        jsonProducts.cantidad = value[2];
+        jsonProducts.motivo = value[3];
+        productList.push(jsonProducts)
+     })
+
+     var tercero = $('#idTercero').val();
+     if(tercero == ''){
+       toastr.error('Ingrese un tercero');
+       return
+     }
+
+     datos={
+         fecha: $('#fechaFactura').val(),
+         tercero: tercero,
+         productos: productList
+     }
+
+     Swal.fire({
+        title: 'Generar Salida ?',
+        text: "No podrás reversar esta acción !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, generar!'
+        }).then((result) => {
+          if (result.value) {
+            $.ajax({
+               data: {
+               'content':JSON.stringify(datos),
+               'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            type: "POST",
+            url: 'salidaproducto/',
+            success: function(response){
+               if(response['state']){
+                  toastr.success('Transacción realizada')
+                  $("#factura").load("factura/"+response['factura_id'], function(){
+                     $('#modalFactura').modal('show')
+                     $('#modalFactura').on('hidden.bs.modal', function (e) {
+                          location.reload();
+                     })
+                  });
+               }
+               else{
+                 toastr.error('Por favor revise los datos')
+               }
+            }
+          })
+        }
+     })
+  }
+
+  $('#tblProductos tbody').on( 'click', 'i', function () {
+      Swal.fire({
+        title: 'Desea eliminar este producto ?',
+        text: "No podrás reversar esta acción !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Eliminar!'
+        }).then((result) => {
+           if (result.value) {
+             table = $('#tblProductos').DataTable()
+             var index = table.row( $(this).parents('tr')).index();
+             table.rows(index).remove().draw();
+             toastr.success('Elemento eliminado');
+           }
+        })
+   } );
+
+  $(document).on('submit','#modalconsultar',function(event){
+     event.preventDefault();
+     event.stopImmediatePropagation();
+     $("#closemodalconsultar").click();
+     codigo = $('#codigotercero').val();
+     $('#idTercero').val(codigo);
+     $('#idTercero').blur();
+  });
+
+  function buscarTercero(){
+     var nombreTercero = $('#nombreTercero');
+     idTercero = $('#idTercero').val();
+     if(idTercero.length > 0 ){
+        for(tercero in Terceros){
+            if(Terceros[tercero].codigo == idTercero){
+                nombreTercero.val(Terceros[tercero].nombre.toUpperCase());
+                return
+            }
+        }
+
+
+        nombreTercero.val('');
+        Swal.fire({
+         title: 'Tercero no encontrado',
+         text: "Desea agregar este tercero ahora ?",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Si, Agregar'
+         }).then((result) => {
+            if (result.value) {
+               $("#formulario").load("/terceros/frmterceros/", function(){
+                  $('#id_codigo').val(idTercero)
+                  $('#modal-grupo').modal('show');
+               });
+            }
+        })
+     }
+  }
+
+
+
+</script>
+{% endblock %}

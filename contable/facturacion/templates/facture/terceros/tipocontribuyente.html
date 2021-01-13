@@ -1,0 +1,101 @@
+{% extends 'facture/masterpage.html'%}
+{% load static%}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"></h3>
+        <button type="button" class="btn btn-success" data-toggle="modal" onclick="openForm()">
+            <i class="fas  fa-plus-circle"></i>
+        </button>
+    </div>
+
+    <!-- insert table -->
+    <div id="table"></div>
+</div>
+<!-- insert form -->
+<div id="form"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+  function loadTable(){
+     $("#table").load("/tipocontribuyente/tbltipocontribuyente", function(){
+        $("#tblTipoContribuyente").DataTable({
+            "responsive": true,
+            "autoWidth": true,
+         });
+      })
+  }
+
+  function openForm(){
+      $("#form").load("/tipocontribuyente/frmtipocontribuyente/", function(){
+          $('#modal-grupo').modal('show');
+      })
+  }
+
+  function editar(id){
+      $("#form").load("/tipocontribuyente/frmtipocontribuyente/"+id, function(){
+          $('#modal-grupo').modal('show');
+      })
+  }
+
+  function borrar(id) {
+     Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podrás reversar esta acción !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, borrar!'
+        }).then((result) => {
+          if (result.value) {
+            $.ajax({
+                type: "GET",
+                url: "/tipocontribuyente/eliminar/"+id,
+                success: function(response){
+                    if(response['state']){
+                        toastr.success(response['msg'])
+                        loadTable()
+                        $("#closeModal").click()
+                    }
+                    else{
+                        toastr.error(response['msg'])
+                    }
+                }
+             })
+          }
+        })
+  }
+
+  toastr.options.timeOut = 500;
+
+  $(function () {
+     $("#form").load("/tipocontribuyente/frmtipocontribuyente/")
+     loadTable()
+  });
+
+  $(document).on('submit','#frmTipoContribuyente',function(event){
+     event.preventDefault();
+     event.stopImmediatePropagation();
+     var urlAction = ($("#frmTipoContribuyente").attr('action'))
+     $.ajax({
+        data: $(frmTipoContribuyente).serialize(),
+        type: "POST",
+        url: urlAction,
+        success: function(response){
+           if(response['state']){
+              toastr.success('Registro Guardado')
+              loadTable()
+              $("#closeModal").click()
+           }
+           else{
+              toastr.error('Por favor revise los datos')
+           }
+        }
+     })
+  });
+
+</script>
+{% endblock %}

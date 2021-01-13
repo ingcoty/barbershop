@@ -1,0 +1,73 @@
+{% load widget_tweaks %}
+<div class="modal fade" id="modal-producto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h4 class="card-title">Crear Producto</h4>
+                    </div>
+                    <!-- Inicio del Formulario Productos -->
+                    <form method="post" id="formProductos" autocomplete="off" action="{{url_action}}"> <!-- {{url_action}} -->
+                        {% csrf_token %}
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-barcode"></i></span>
+                                </div>
+                                {{form.codigo | attr:"class:form-control" | attr:"placeholder:codigo"}}
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+                                </div>
+                                {{form.descripcion | attr:"class:form-control" | attr:"placeholder:descripcion"}}
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-cubes"></i></span>
+                                </div>
+                                {{form.grupo | attr:"class:form-control" | attr:"placeholder:grupo"}}
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                                </div>
+                                {{form.impuesto | attr:"class:form-control" | attr:"placeholder:impuesto"}}
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-balance-scale"></i></span>
+                                </div>
+                                {{form.medida | attr:"class:form-control" | attr:"placeholder:medida"}}
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-cart-plus"></i></span>
+                                </div>
+                                {{form.venta | attr:"class:form-control" | attr:"placeholder:precio venta"}}
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-boxes"></i></span>
+                                </div>
+                                {{form.stock | attr:"class:form-control" | attr:"placeholder:stock mínimo"}}
+                            </div>
+
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" id="closeModal" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary" >Guardar</button>
+                        </div>
+                    </form>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>

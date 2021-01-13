@@ -1,0 +1,49 @@
+{% extends 'adminlte/base.html'%}
+{%load static%}
+
+{% block extra_head %}
+<style type="text/css">
+body {
+  font-size: 15px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="resumen"></div>
+{% endblock %}
+
+<!-- navegacion del menú lateral -->
+{% block nav_sidebar %}
+    {% include 'facture/sidebar.html'%}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  $(function () {
+      $("#resumen").load("/resumen", function(){
+
+      })
+  });
+
+  function loadinfservicio(){
+      $("#resumen").load("/resumen/servicios", function(){
+
+      })
+  }
+
+  function loadinfventas(){
+      $("#resumen").load("/resumen/ventas", function(){
+
+      })
+  }
+
+  function loadinfcompras(){
+      $("#resumen").load("/resumen/compras", function(){
+
+      })
+  }
+  
+
+</script>
+{% endblock %}

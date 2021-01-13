@@ -1,0 +1,102 @@
+{% extends 'facture/masterpage.html'%}
+{% load static%}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"></h3>
+        <button type="button" class="btn btn-success" data-toggle="modal" onclick="openForm()">
+            <i class="fas  fa-plus-circle"></i>
+        </button>
+    </div>
+
+    <!-- insert table -->
+    <div id="table"></div>
+</div>
+<!-- insert form -->
+<div id="form"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+
+  toastr.options.timeOut = 500;
+
+  function loadTable(){
+      $("#table").load("/productos/tblproductos", function(){
+         $("#tblProductos").DataTable({
+            "responsive": true,
+            "autoWidth": true,
+         });
+      })
+  }
+
+  function openForm(){
+      $("#form").load("/productos/frmproductos/", function(){
+          $('#modal-producto').modal('show');
+      })
+  }
+
+  function editar(id){
+      $("#form").load("/productos/frmproductos/"+id, function(){
+          $('#modal-producto').modal('show');
+      })
+  }
+
+  function borrar(id) {
+     Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podrás reversar esta acción !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, borrar!'
+        }).then((result) => {
+          if (result.value) {
+             $.ajax({
+                type: "GET",
+                url: "/productos/eliminar/"+id,
+                success: function(response){
+                    if(response['state']){
+                        loadTable()
+                        $("#closeModal").click()
+                        toastr.success(response['msg'])
+                    }
+                    else{
+                        toastr.error(response['msg'])
+                    }
+                }
+             })
+          }
+        })
+  }
+
+  $(function () {
+     $("#form").load("/productos/frmproductos/")
+     loadTable()
+  });
+
+  $(document).on('submit','#formProductos',function(event){
+     event.preventDefault();
+     event.stopImmediatePropagation();
+     var urlAction = ($("#formProductos").attr('action'))
+     $.ajax({
+        data: $(formProductos).serialize(),
+        type: "POST",
+        url: urlAction,
+        success: function(response){
+           if(response['state']){
+              toastr.success(response['msg'])
+              loadTable()
+              $("#closeModal").click()
+           }
+           else{
+              toastr.error(response['msg'])
+           }
+        }
+     })
+  });
+
+</script>
+{% endblock %}
