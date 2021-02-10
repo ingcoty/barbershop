@@ -1,0 +1,123 @@
+{% load adminlte_helpers i18n %}
+{% load humanize %}
+{% load static %}
+<div class="modal fade" id="modalFactura" style="display: none; font-size: 12px;" aria-hidden="true">
+    <div id="modalsize" class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="invoice p-4 mb-2" id="invoice">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h6>
+                                <img src="{% static 'img/logo_fac.jpeg' %}" alt="AdminLTE Logo"
+                                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                                    &nbsp;&nbsp; INFORME DE INVENTARIO - KARDEX
+                                <small class="float-right">Fecha: {{ fecha_inicial }} - {{ fecha_final }}</small>
+                            </h6>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-6 invoice-col">
+                            <address>
+                                <strong> {{empresa.nombre}} </strong><br>
+                                {{empresa.nit}}</br>
+                                <strong>Direccion:</strong>{{empresa.dir}} - {{empresa.ciudad}} <br>
+                                <strong>Contribuyente:</strong> Ricardo Ernesto Girón Santos <br>
+                                <strong>NRC:</strong> 231038-5 <br>
+                                <strong>Producto: {{producto.descripcion}}</strong>
+
+                            </address>
+
+                        </div>                        
+                    </div>
+                    <!-- /.row -->
+
+                    <!-- Table row -->
+                    <div class="row">
+                        <div class="col-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Tercero</th>
+                                        <th>Factura</th>
+                                        <th>Nacionalidad</th>
+                                        <th>Compra</th>
+                                        <th>Costo</th>
+                                        <th>Cantidad Ant</th>
+                                        <th>Entradas</th>
+                                        <th>Salidas</th>
+                                        <th>Cantidad Act</th>
+                                        <th>Saldo Ant.</th>
+                                        <th>Entradas</th>
+                                        <th>Salidas</th>
+                                        <th>Saldo Act.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for producto in kardex%}
+                                    <tr>
+                                        <td>{{producto.fecha}}</td>
+                                        <td>{{producto.nombre}}</td>
+                                        <td>{{producto.factura}}</td>
+                                        <td>Salvadoreña</td>
+                                        <td>{{producto.salEntradas}}</td>
+                                        <td>{{producto.costoProm}}</td>
+                                        <td>{{producto.cantAnterior}}</td>
+                                        <td>{{producto.entradas}}</td>
+                                        <td>{{producto.salidas}}</td>
+                                        <td>{{producto.cantActual}}</td>
+                                        <td>{{producto.salAnterior}}</td>
+                                        <td>{{producto.salEntradas}}</td>
+                                        <td>{{producto.salSalidas}}</td>
+                                        <td>{{producto.salActual}}</td>
+                                        {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row">
+                        <!-- accepted payments column -->
+                        <div class="col-6">
+                            <p class="lead"></p>
+
+                        </div>
+                        <!-- /.col -->                       
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+
+                    <!-- this row will not appear when printing -->
+                    <div class="row no-print">
+                        <div class="col-12">
+                            <a onclick="imprimir()" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                            <a href={% url 'dowload_rptKardex' fecha_inicial fecha_final codigo %} class="btn btn-default"><i class="fas fa-download"></i> Download</a>    
+                        </div>
+                    </div>
+                    <p>
+                        <small class="float-right">habitat technology</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script>
+    function imprimir() {
+        var contentToPrint = document.getElementById('invoice')
+        var win = window.open('', 'Print-Window')
+        win.document.open()
+        win.document.write('<!DOCTYPE html> <html><head><link rel="stylesheet" href="/static/admin-lte/dist/css/adminlte.min.css"></head><body style="font-size:11px;" onload="window.print()"><div style="padding:3%;""> ' + contentToPrint.innerHTML + '</div></body></html>')
+        win.document.close()
+    }
+</script>

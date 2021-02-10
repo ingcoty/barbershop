@@ -1,0 +1,81 @@
+{% extends 'facture/masterpage.html'%}
+{% load static%}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Inventario Kardex</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <style>
+                        select:invalid {
+                            color: gray;
+                        }
+                    </style>
+                    <select class="form-control select2" style="width: 100%;" id="codigoProducto">
+                        <option value="" disabled selected hidden>Productos</option>
+                        {% for producto in productos %}
+                        <option value="{{producto.id}}">{{ producto.descripcion }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group mb-3 col-4">
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </div>
+
+                    <input type="text" class="form-control float-right" id="reservation">
+                    <button class="btn btn-info" onclick="getdetail()"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- insert form -->
+        <div id="reporte"></div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+
+    toastr.options.timeOut = 1000;
+
+    function getdetail() {
+        var date = document.getElementById('reservation').value;
+        var ini = (date.split("-")[0].trim().replace("/", "-")).replace("/", "-")
+        var fin = (date.split("-")[1].trim().replace("/", "-")).replace("/", "-")
+        codigo = $('#codigoProducto').val();
+        console.log(codigo)
+
+        $("#reporte").load("/reportes/tblRptKardex/" + ini + "/" + fin + "/" + codigo, function () {
+            $('#modalFactura').modal('show')
+        })
+    }
+
+    $(function () {
+
+        //Initialize Select2 Elements
+        $('.select2').select2({
+            placeholder: "Seleccione un producto"
+        });
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        })
+    });
+</script>
+{% endblock %}

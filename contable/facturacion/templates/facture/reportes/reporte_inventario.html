@@ -2,10 +2,6 @@
 {% load humanize %}
 {% load static %}
 <style type="text/css">
-    body {
-        font-size: 15px;
-    }
-
     .facturaAnulada:after {
         content: "ANULADO";
         font-size: 6em;
@@ -116,7 +112,7 @@
                     <div class="row no-print">
                         <div class="col-12">
                             <a onclick="imprimir()" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-                            <a href={% url 'dowload_rptInventario' fecha_inicial fecha_final %}" class="btn btn-default"><i class="fas fa-download"></i> Download</a>
+                            <a href={% url 'dowload_rptInventario' fecha_inicial fecha_final%}" class="btn btn-default"><i class="fas fa-download"></i> Download</a>
                         </div>
                     </div>
                     <p>
@@ -135,7 +131,7 @@
         var contentToPrint = document.getElementById('invoice')
         var win = window.open('', 'Print-Window')
         win.document.open()
-        win.document.write('<!DOCTYPE html> <html><head><link rel="stylesheet" href="/static/admin-lte/dist/css/adminlte.min.css"></head><body style="font-size:15px;" onload="window.print()"><div> ' + contentToPrint.innerHTML + '</div></body></html>')
+        win.document.write('<!DOCTYPE html> <html><head><link rel="stylesheet" href="/static/admin-lte/dist/css/adminlte.min.css"></head><body style="font-size:12px;" onload="window.print()"><div style="padding:3%;"> ' + contentToPrint.innerHTML + '</div></body></html>')
         win.document.close()
     }
 </script>

@@ -1,5 +1,7 @@
 import csv
 import json
+from django.core import paginator, serializers
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db import connection
 from django.http import FileResponse
 from django.shortcuts import render, redirect
@@ -567,7 +569,7 @@ def eliminartipocontribuyente(request, id):
 # vista de facturación
 @login_required(login_url="/")
 def compras(request):
-    #productos = Producto.objects.filter(~Q(id = 2))
+    # productos = Producto.objects.filter(~Q(id = 2))
     productos = Producto.objects.all()
     fpagos = FormaPago.objects.all()
     terceros = Tercero.objects.filter(tipotercero=1)
@@ -725,9 +727,6 @@ def facturascompras(request):
     return render(request, 'facture/compras/factura.html')
 
 
-@login_required(login_url="/")
-def facturasventas(request):
-    return render(request, 'facture/ventas/factura.html')
 
 
 @login_required(login_url="/")
@@ -740,12 +739,22 @@ def tblfacturascompras(request):
 
 
 @login_required(login_url="/")
-def tblfacturasventas(request):
-    facturas = Documentos.objects.filter(tipo=2)
+def facturasventas(request):
+    facturas = Documentos.objects.filter(tipo=2).order_by('-consecutivo')
+    page = request.GET.get('page', 1)
+    paginator = Paginator(facturas, 20)
+    try:
+        facturas_pag = paginator.page(page)
+    except PageNotAnInteger:
+        facturas_pag = paginator.page(1)
+    except EmptyPage:
+        facturas_pag = paginator.page(paginator.num_pages)
+
+
     context = {
-        'facturas': facturas
+        'facturas': facturas_pag
     }
-    return render(request, 'facture/tables/tblFacturasVentas.html', context)
+    return render(request, 'facture/ventas/factura.html', context)
 
 
 @login_required(login_url="/")
@@ -1019,6 +1028,7 @@ def tblRptInventario(request, inicial, final):
     inicial = inicial[6:10] + '-' + inicial[0:2] + '-' + inicial[3:5]
     final = final[6:10] + '-' + final[0:2] + '-' + final[3:5]
     inventory = inventory_query(inicial, final, 0)
+
     for row in inventory:
         for key in row.keys():
             if row[key] is None:
@@ -1035,7 +1045,7 @@ def tblRptInventario(request, inicial, final):
     return render(request, 'facture/reportes/reporte_inventario.html', context)
 
 
-def download_inventario(request, inicial, final):    
+def download_inventario(request, inicial, final):
     response = HttpResponse(content_type='txt/csv')
     response['Content-Disposition'] = "attachment; filename=inventory.csv"
     writer = csv.writer(response)
@@ -1092,5 +1102,167 @@ def download_ventas(request, inicial, final):
     sales = sales_query(inicial, final, 1, 0)
     for row in sales:
         writer.writerow(row)
+
+    return response
+
+
+def cal_costo(inicial, codproduct):
+    with connection.cursor() as cursor:
+        cursor.execute("select sum(existencia*costo)/sum(existencia) "
+                       "as costo from facturacion_inventario where codproduct_id = %s "
+                       "and existencia > 0 and fecha < %s", [codproduct, inicial])
+
+        columns = [col[0] for col in cursor.description]
+        response = [
+            dict(zip(columns, row))
+            for row in cursor.fetchall()
+        ]
+
+        return(response[0]['costo'])
+
+
+def cal_cant(inicial, codproduct):
+    with connection.cursor() as cursor:
+        cursor.execute("select sum(existencia) as existencia from facturacion_inventario "
+                       "where codproduct_id = %s "
+                       "and fecha < %s", [codproduct, inicial])
+
+        columns = [col[0] for col in cursor.description]
+        response = [
+            dict(zip(columns, row))
+            for row in cursor.fetchall()
+        ]
+
+        return(response[0]['existencia'])
+
+
+def kardex_table(initdate, finaldate, codproduct):
+    with connection.cursor() as cursor:
+
+        cursor.execute("create temp table resto as select facturacion_inventario.existencia, facturacion_inventario.fecha, "
+                       "facturacion_inventario.costo, facturacion_tercero.nombre, facturacion_inventario.numfac_id as factura "
+                       "from facturacion_inventario "
+                       "inner join facturacion_documentos "
+                       "on numfac_id = facturacion_documentos.id "
+                       "inner join facturacion_tercero "
+                       "on facturacion_documentos.tercero_id = facturacion_tercero.id "
+                       "where codproduct_id = %s and facturacion_inventario.fecha > %s "
+                       "and facturacion_inventario.fecha <= %s", [codproduct, initdate, finaldate])
+
+        cursor.execute("select fecha, case when existencia > 0 then existencia "
+                       "else 0 end as entradas, case when existencia < 0 then "
+                       "existencia else 0 end as salidas, costo, nombre, factura from resto")
+
+        columns = [col[0] for col in cursor.description]
+        response = [
+            dict(zip(columns, row))
+            for row in cursor.fetchall()
+        ]
+
+        cant = round(cal_cant(initdate, codproduct), 1)
+        costo = round(cal_costo(initdate, codproduct), 1)
+        cantidad = cant
+        costoacum = round(costo * cant, 1)
+        costoprom = costo
+        saldoAnt = costoacum
+        init_row = {
+            'fecha': initdate,
+            'nombre': 'Saldo Inicial',
+            'factura': 0,
+            'cantAnterior': cant,
+            'entradas': 0,
+            'salidas': 0,
+            'costo': costo,
+            'costoProm': costoprom,
+            'cantActual': cant,
+            'salAnterior': costoacum,
+            'salEntradas': 0,
+            'salSalidas': 0,
+            'salActual': costoacum
+        }
+
+        kardex_table = [init_row]
+
+        for row in response:
+            cantidad += row['entradas']
+            row['cantAnterior'] = cant
+            row['salAnterior'] = round(saldoAnt, 1)
+            row['salEntradas'] = round(row['entradas'] * row['costo'], 1)
+            cant = cant + row['entradas'] + row['salidas']
+            saldoAnt
+            row['cantActual'] = cant
+
+            if row['entradas'] > 0:
+                costoacum += row['costo'] * row['entradas']
+                costoprom = costoacum/cantidad
+
+            row['costoProm'] = round(costoprom, 1)
+            row['salSalidas'] = round(-row['salidas'] * row['costoProm'], 1)
+            row['salActual'] = round(
+                row['salAnterior'] + row['salEntradas'] - row['salSalidas'], 1)
+            saldoAnt = row['salActual']
+            kardex_table.append(row)
+
+        return(kardex_table)
+
+
+def rptkardex(request):
+    productos = Producto.objects.all()
+    context = {
+        'productos': productos
+    }
+    return render(request, 'facture/reportes/frmrptkardex.html', context)
+
+
+def tblRptKardex(request, inicial, final, codproduct):
+    inicial = inicial[6:10] + '-' + inicial[0:2] + '-' + inicial[3:5]
+    final = final[6:10] + '-' + final[0:2] + '-' + final[3:5]
+    table = kardex_table(inicial, final, codproduct)
+    info = Empresa.objects.get(id=1)
+    product = Producto.objects.get(id=codproduct)
+
+    context = {
+        'fecha_inicial': inicial,
+        'fecha_final': final,
+        'codigo': codproduct,
+        'empresa': info,
+        'producto': product,
+        'kardex': table
+    }
+
+    return render(request, 'facture/reportes/reporte_kardex.html', context)
+
+
+def download_kardex(request, inicial, final, codproduct):
+    response = HttpResponse(content_type='txt/csv')
+    producto = Producto.objects.filter(id=codproduct).values()    
+    product_name = producto[0]['descripcion']
+    response['Content-Disposition'] = "attachment; filename=" + product_name + ".csv"
+    writer = csv.writer(response)
+
+    writer.writerow([product_name])
+    writer.writerow(["Fecha", "Tercero", "Factura", "Nacionalidad", "Compra",
+                       "Costo", "Cantidad Anterior", "Entradas", "Salidas", "Cantidad Actual",
+                       "Saldo Anterior", "Entradas", "Salidas", "Saldo Actual"])
+
+    table = kardex_table(inicial, final, codproduct)
+    for row in table:
+        values = [
+            row['fecha'],
+            row['nombre'],
+            row['factura'],
+            "Salvadoreña",
+            row['salEntradas'],
+            row['costoProm'],
+            row['cantAnterior'],
+            row['entradas'],
+            row['salidas'],
+            row['cantActual'],
+            row['salAnterior'],
+            row['salEntradas'],
+            row['salSalidas'],
+            row['salActual'],
+        ]
+        writer.writerow(values)
 
     return response
