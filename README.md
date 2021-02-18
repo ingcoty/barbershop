@@ -2,9 +2,9 @@
 
 This code is about a simple pos system to register sels for products and services, it can control the inventory, profits and some taxes.
 
-*Backend: Python-Django
-*Frontend AdminLte/Javascript
-*DB Sqlite3 - Some SQL querys on views for temporal tables
+- Backend: Python-Django
+- Frontend AdminLte/Javascript
+- DB Sqlite3 - Some SQL querys on views for temporal tables
 
 How to run: 
 1. just clon the repository 
@@ -15,8 +15,8 @@ How to run:
 replace "port" to wherever number you want
 and "tag" to wherever tag you want
 
-Credentials:
-user: administrator
-pass: admin123456
-
 here you can find a live example: http://3.92.185.70/ 
+
+Credentials:
+- user: administrator
+- pass: admin123456
