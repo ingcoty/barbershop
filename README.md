@@ -15,7 +15,7 @@ How to run:
 replace "port" to wherever number you want
 and "tag" to wherever tag you want
 
-here you can find a live example: http://3.92.185.70/ 
+here you can find a live example: http://3.92.185.70:81/ 
 
 Credentials:
 - user: administrator
